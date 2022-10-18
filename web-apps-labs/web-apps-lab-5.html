@@ -48,7 +48,20 @@
         // Change text to say color selected:
         let selectedColor = (e) => { document.querySelector("#info").innerHTML = 'You have selected ' + e.target.value + '!'; };
 
-        let changeColor = (e) => { e.target.style.color = "red"; };
+        let changeColor = function (e) {
+            if (red.checked) {
+                document.querySelector("legend").style.color = "red";
+                document.querySelector("#info").innerHTML = 'Your FINAL choice is "red"!';
+            }
+            else if (green.checked) {
+                document.querySelector("legend").style.color = "green";
+                document.querySelector("#info").innerHTML = 'Your FINAL choice is "green"!';
+            }
+            else if (blue.checked) {
+                document.querySelector("legend").style.color = "blue";
+                document.querySelector("#info").innerHTML = 'Your FINAL choice is "blue"!';
+            }
+        }
 
         // References to colors and submit button:
         let red = document.querySelector("#colorGroupRed");
@@ -58,9 +71,9 @@
 
         submitButton.addEventListener("click", changeColor);
 
-        red.addEventListener("click", selectedColor);
-        green.addEventListener("click", selectedColor);
-        blue.addEventListener("click", selectedColor);
+        red.addEventListener("change", selectedColor);
+        green.addEventListener("change", selectedColor);
+        blue.addEventListener("change", selectedColor);
 
     </script>
 </body>
